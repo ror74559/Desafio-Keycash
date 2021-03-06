@@ -1,0 +1,14 @@
+Resultado da consulta
+O preço de um imóvel com as seguintes características:
+Zona: 0
+Área: 100
+Qualidade: 4
+Ano de construção: 1960
+Banheiros: 1
+Quartos tipo 1: 0
+Quartos tipo 2: 0
+Cômodos: 1
+Lareiras: 0
+Garagem: 0
+Será de aproximadamente: R$ 68.795,04
+2021-03-03 16:52:13.590304

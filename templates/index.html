@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Precificação de casas</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	</head>
+
+	<body >
+		
+		<div class="container-fluid">
+			<div class="row"style = "display: flex;flex-direction: row;justify-content: center;align-items: top;">
+				<div class="col-sm-10 col-md-5 col-lg-5"style="border: solid 1px black;border-radius: 2px;margin:1px; padding: 5px;display: flex;flex-direction: row;justify-content: center;align-items: top;">
+					<hr>
+					<form class="well form-search" method="POST" action="{{ url_for('prever') }}">
+						<legend>Predição de Preço de Imóvel</legend>
+						<div class="form-group">
+						    <label for="zona">Zona</label>
+						    <legend style="font-size: 10px;">0 - RM(Residencial Média densidade)</legend>
+						    <legend style="font-size: 10px;">1 - RL(Residencial baixa densidade)</legend>
+						    <select class="form-control" id="zona" name="zona">
+						      <option>0</option>
+						      <option>1</option>
+						    </select>
+					  	</div>
+						<div class="form-group">
+						    <label for="area">Área(pés<sup>2</sup>)</label>
+						    <input type="number" class="form-control" id="area" name="area" placeholder="100" min="1">
+			 			</div>
+			 			<div class="form-group">
+						    <label for="qualidade">Qualidade</label>
+						    <select class="form-control" name="qualidade">
+						      <option>4</option>
+						      <option>5</option>
+						      <option>6</option>
+						      <option>7</option>
+						      <option>8</option>
+
+						    </select>
+					  	</div>
+					  	<div class="form-group">
+						    <label for="anoconstrucao">Ano da construção</label>
+						    <input type="number" class="form-control" name="anoconstrucao" placeholder="1940" min="1940">
+			 			</div>
+
+			 			<div class="form-group">
+						    <label for="banheiros">Banheiros</label>
+						    <select class="form-control" name="banheiros">
+						      <option>1</option>
+						      <option>2</option>
+						    </select>
+					  	</div>
+
+					  	<div class="form-group">
+						    <label for="quartost1">Qualidade do Aquecimeto</label>
+						    <legend style="font-size: 10px;">0 - Aceitavel</legend>
+						    <legend style="font-size: 10px;">1 - Mediano</legend>
+						    <legend style="font-size: 10px;">2 - Bom</legend>
+						    <legend style="font-size: 10px;">3 - Excelente</legend>
+						    <select class="form-control" name="qualidadeaquacimento">
+						      <option>0</option>
+						      <option>1</option>
+						      <option>2</option>
+						      <option>3</option>
+						    </select>
+					  	</div>
+
+					  	<div class="form-group">
+						    <label for="comodos">Cômodos</label>
+						    <select class="form-control" name="comodos">
+						      <option>1</option>
+						      <option>2</option>
+						      <option>3</option>
+						      <option>4</option>
+						      <option>5</option>
+						      <option>6</option>
+						    </select>
+					  	</div>
+					  	<div class="form-group">
+						    <label for="lareiras">Lareiras</label>
+						    <select class="form-control" name="lareiras">
+						      <option>0</option>
+						      <option>1</option>
+						      <option>2</option>
+						      <option>3</option>
+						      
+						    </select>
+					  	</div>
+					  	<div class="form-group">
+						    <label for="garagem">Garagem</label>
+						    <select class="form-control" name="garagem">
+						      <option>0</option>
+						      <option>1</option>
+						      <option>2</option>
+						      <option>3</option>
+						      <option>4</option>
+						    </select>
+					  	</div>
+
+					  	<button type="submit" class= "btn btn-primary">
+						    Consultar
+						</button>
+						    
+					  
+					</form>
+					<hr>
+				</div>
+				<div class="col-sm-10 col-md-5 col-lg-5"style="{{borda}};border-radius: 2px; margin:1px; padding: 5px;">
+					<hr>
+					<div>
+						<h2>{{Resultado}}</h2>
+						<h3>{{zona}}</h3>
+						<h3>{{area}}</h3>
+						<h3>{{qualidade}}</h3>
+						<h3>{{anoconstrucao}}</h3>
+						<h3>{{qualidadeaquecimento}}</h3>
+						<h3>{{banheiros}}</h3>
+						<h3>{{comodos}}</h3>
+						<h3>{{lareiras}}</h3>
+						<h3>{{garagem}}</h3>
+						<h2>{{preco}}</h2>
+					</div>
+					<button class= "btn btn-primary" {{escondido}}>
+						    <a href="../static/consulta.pdf" download style = "text-decoration: none; color: white">{{baixar}}</a>
+					</button>
+					<hr>
+				</div>
+			</div>
+		</div>
+		
+
+	</body>
+
+</html>
